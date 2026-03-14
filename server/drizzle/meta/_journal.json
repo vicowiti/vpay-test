@@ -15,6 +15,13 @@
       "when": 1773496907092,
       "tag": "0001_parallel_omega_flight",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1773514435153,
+      "tag": "0002_safe_killer_shrike",
+      "breakpoints": true
     }
   ]
 }
