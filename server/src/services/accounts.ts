@@ -60,6 +60,29 @@ export class AccountService {
     }
   }
 
-  // Soft delete an account
-  async deleteAccount(accountId: number, userId: number): Promise<void> {}
+  async deleteAccount(accountId: number, userId: number): Promise<void> {
+    try {
+      const [account] = await db
+        .select()
+        .from(accounts)
+        .where(
+          and(
+            eq(accounts.id, accountId),
+            eq(accounts.userId, userId),
+            eq(accounts.isActive, true),
+          ),
+        )
+        .limit(1);
+
+      if (!account) throw new AppError("Account not found", 404);
+
+      await db
+        .update(accounts)
+        .set({ isActive: false })
+        .where(eq(accounts.id, accountId));
+    } catch (error) {
+      if (error instanceof AppError) throw error;
+      throw new AppError("Failed to delete account", 500);
+    }
+  }
 }
