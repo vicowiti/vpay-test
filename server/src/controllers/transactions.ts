@@ -72,7 +72,8 @@ export class TransactionController {
   ): Promise<void> {
     try {
       const userId = req.user?.id as number;
-      const accountSelected: string = req.params.id as string;
+      console.log("params", req.params);
+      const accountSelected: string = req.params.accountId as string;
       const transactions = await transactionService.getTransactionsByAccount(
         accountSelected as unknown as number,
         userId,

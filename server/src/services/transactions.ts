@@ -2,6 +2,7 @@ import { AppError } from "../middleware/error";
 import { db } from "../db";
 import { accounts, transactions } from "../db/schema";
 import { eq, and, or } from "drizzle-orm";
+import { log } from "node:console";
 
 interface DepositPayload {
   toAccountId: number;
@@ -47,6 +48,8 @@ export class TransactionService {
       });
     } catch (error) {
       if (error instanceof AppError) throw error;
+      console.log(error);
+
       throw new AppError("Failed to process deposit", 500);
     }
   }
@@ -243,6 +246,7 @@ export class TransactionService {
     accountId: number,
   ): Promise<typeof accounts.$inferSelect> {
     try {
+      log("Fetching account with ID:", accountId);
       const [account] = await db
         .select()
         .from(accounts)
