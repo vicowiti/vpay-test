@@ -45,9 +45,14 @@
  npm ci
 ```
 
-4. Create a `.env` file in the root of the project(inside the server directory) and add the variables shared on email.
+4. Create a `.env` file in the root of the project(inside the server directory) and add the variables
+   PORT=your_preferred_port
+   DATABASE_URL=postgresql://your_postgres_username:your_postgres_password@localhost:5432/your_database_name
+   NODE_ENV=development
+   API_VERSION=1
+   JWT_SECRET=your_prefered_secret
 
-5. Open `pgAdmin` and create a database called `vunar`.
+5. Open `pgAdmin` and create a database and add its name to the url..
 6. Run the migrations to create the tables in the database.
 
 ```bash
