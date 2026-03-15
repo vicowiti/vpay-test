@@ -27,9 +27,8 @@ export class TransactionService {
   async deposit(payload: DepositPayload): Promise<void> {
     try {
       const { toAccountId, amount, note } = payload;
-      const toAccount = await this.getActiveAccount(toAccountId);
-
       if (amount <= 0) throw new AppError("Invalid amount", 400);
+      const toAccount = await this.getActiveAccount(toAccountId);
 
       // Update balance
       await db
@@ -58,11 +57,9 @@ export class TransactionService {
   async transfer(payload: TransferPayload, userId: number): Promise<void> {
     try {
       const { fromAccountId, toAccountId, amount, note } = payload;
-
+      if (amount <= 0) throw new AppError("Invalid amount", 400);
       const fromAccount = await this.getActiveAccount(fromAccountId);
       const toAccount = await this.getActiveAccount(toAccountId);
-
-      if (amount <= 0) throw new AppError("Invalid amount", 400);
 
       if (fromAccount.userId !== userId) {
         throw new AppError("Access denied", 403);
