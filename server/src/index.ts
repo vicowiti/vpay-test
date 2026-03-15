@@ -6,6 +6,7 @@ import cookieparser from "cookie-parser";
 import AuthRouter from "./routes/auth";
 import AccountRouter from "./routes/accounts";
 import TransactionRouter from "./routes/transactions";
+import DocsRouter from "./docs";
 
 const app = express();
 app.use(express.json());
@@ -19,6 +20,7 @@ app.get("/health", (req: Request, res: Response) => {
 app.use("/api/auth", AuthRouter);
 app.use("/api/accounts", AccountRouter);
 app.use("/api/transactions", TransactionRouter);
+app.use("/docs", DocsRouter);
 
 // Error middleware
 
