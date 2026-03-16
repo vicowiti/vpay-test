@@ -4,15 +4,15 @@
 
 ## Technology Stack
 
-- [Nodejs]("") - A javascript runtime based on the Google V8 engine
-- [Typescript]("") - A superset of javascript that enables us to leverage types among other features enabling us to catch bugs early.
-- [Express]("") - A web application framework for Nodejs to manage our API endpoints.
-- [Postgres]("") - An ACID compliant open source SQL database.
-- [DrizzleORM]("") - A Typescript friendly ORM that enables us to interact with our database in a more efficient way.
-- [Zod]("") - A Typescript first schema validation library to validate our API requests and responses. Here it is used for swagger schema generation.
-- [Swagger]("") - A tool to generate API documentation and client SDKs from our API definitions.
-- [Jest]("") - A testing framework for JavaScript and Typescript to write unit and integration tests.
-- [Supertest]("") - A library to test our API endpoints.
+- [Nodejs]("https://nodejs.org/") - A javascript runtime based on the Google V8 engine
+- [Typescript]("https://www.typescriptlang.org/") - A superset of javascript that enables us to leverage types among other features enabling us to catch bugs early.
+- [Express]("https://expressjs.com/") - A web application framework for Nodejs to manage our API endpoints.
+- [Postgres]("https://www.postgresql.org/") - An ACID compliant open source SQL database.
+- [DrizzleORM]("https://orm.drizzle.team/") - A Typescript friendly ORM that enables us to interact with our database in a more efficient way.
+- [Zod]("https://zod.dev/") - A Typescript first schema validation library to validate our API requests and responses. Here it is used for swagger schema generation.
+- [Swagger]("https://swagger.io/tools/swagger-ui/") - A tool to generate API documentation and client SDKs from our API definitions.
+- [Jest]("https://jestjs.io/") - A testing framework for JavaScript and Typescript to write unit and integration tests.
+- [Supertest]("https://www.npmjs.com/package/supertest") - A library to test our API endpoints.
 
 ## Technology decisions
 
@@ -177,3 +177,10 @@ All errors follow this format:
 4. Get transaction history
 
 Please find the postman collection [here]("./vunapay-api.postman_collection.json") with all the request examples
+
+## Areas to improve
+
+- Implement pagination for transaction history endpoint
+- Implement rate limiting to prevent abuse of the API
+- Add more comprehensive test coverage, including edge cases and error scenarios
+- Use UUIDS for account numbers
